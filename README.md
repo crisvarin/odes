@@ -1,25 +1,74 @@
 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
 # odes
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of odes is to ...
+Observation-driven Exponential Smoothing for Poisson Counts
 
 ## Installation
 
-You can install the development version of odes like so:
+You can install the development version of odes from
+[GitHub](https://github.com/) with:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("devtools")
+devtools::install_github("crisvarin/odes")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to use `odes` for disease surveillance:
 
 ``` r
-library(odes)
-## basic example code
+library("odes")
+example("surveillance.odes")
+#> 
+#> srvll.> ## Replicates Section 4 of Karlis, Pedeli and Varin (2023)
+#> srvll.> dengue_data <- data.frame(counts = dengue, time = seq_len(length(dengue)))
+#> 
+#> srvll.> dates <- seq(as.Date("2008/1/1"), by = "month", length.out =
+#> srvll.+ nrow(dengue_data))
+#> 
+#> srvll.> rownames(dengue_data) <- dates
+#> 
+#> srvll.> ## phase I
+#> srvll.> dengue_phaseI <- dengue_data[1:108, ]
+#> 
+#> srvll.> fit <- odes(counts ~ sin(2 * pi * time / 12) + cos(2 * pi * time / 12),
+#> srvll.+ data = dengue_phaseI)
+#> 
+#> srvll.> summary(fit)
+#> 
+#> Call:
+#> odes(formula = counts ~ sin(2 * pi * time/12) + cos(2 * pi * 
+#>     time/12), data = dengue_phaseI)
+#> 
+#>                       Estimate Std. Error z value Pr(>|z|)    
+#> (Intercept)            1.38553    0.13572  10.209   <2e-16 ***
+#> sin(2 * pi * time/12) -0.73445    0.07253 -10.127   <2e-16 ***
+#> cos(2 * pi * time/12) -0.07760    0.05777  -1.343    0.179    
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Smoothing parameter (alpha): 0.08
+#> srvll.> ## phase 2
+#> srvll.> dengue_phaseII <- dengue_data[-(1:108), ]
+#> 
+#> srvll.> surv <- surveillance.odes(fit, new_data = dengue_phaseII, names_as_dates =
+#> srvll.+ TRUE, date_labels = "%Y", breaks = "2 year", x_label = NULL, y_label =
+#> srvll.+ "Dengue cases")
 ```
 
+<img src="man/figures/README-example-1.png" width="100%" />
+
+    #> 
+    #> srvll.> surv$alarms
+    #> 2017-03-01 2017-09-01 2018-04-01 2018-12-01 2019-01-01 2019-02-01 2019-03-01 
+    #>          3          9         16         24         25         26         27 
+    #> 2019-05-01 2019-07-01 2019-08-01 2019-09-01 2019-10-01 2019-11-01 2019-12-01 
+    #>         29         31         32         33         34         35         36 
+    #> 2020-01-01 
+    #>         37
