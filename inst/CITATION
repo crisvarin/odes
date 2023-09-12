@@ -1,0 +1,7 @@
+bibentry(
+  bibtype  = "Unpublished",
+  title    = "Observation-driven Exponential Smoothing for Poisson Counts",
+  author   = "Dimitris Karlis, Xanthi Pedeli and Cristiano Varin",
+  year     = "2023",
+  note     = "Submitted",
+)
