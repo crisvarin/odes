@@ -82,6 +82,7 @@ results discussed in Section 4 of Karlis, Pedeli, and Varin (2023) to be
 fully replicated:
 
 ``` r
+# To view the vignette type
 # vignette("odes")
 ```
 
