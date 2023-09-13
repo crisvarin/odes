@@ -20,7 +20,8 @@ devtools::install_github("crisvarin/odes")
 
 ## Example
 
-This is a basic example which shows you how to use `odes` for disease surveillance:
+This is a basic example which shows you how to use `odes` for disease
+surveillance:
 
 ``` r
 library("odes")
