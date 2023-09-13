@@ -17,7 +17,9 @@ knitr::opts_chunk$set(
 
 # odes
 
-Observation-driven exponential smoothing of Poisson counts.
+
+This package implements an approach to forecasting count time series with a form of exponential smoothing built from observation-driven models of Davis, Dunsmuir and Streett (2003). The methodology is discussed in Karlis, Pedeli and Varin (2023).
+
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -40,3 +42,9 @@ This is a basic example showing how to use odes for disease surveillance:
 library(odes)
 example(surveillance.odes)
 ```
+
+## References
+
+Davis, R.A., Dunsmuir, W.T. & Streett, S.B. (2003). Observation-driven models for Poisson counts. **Biometrika**, 777–790.
+
+Karlis, D., Pedeli, X. & Varin, C. (2023). Observation-driven exponential smoothing. Submitted. 

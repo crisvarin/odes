@@ -3,7 +3,10 @@
 
 # odes
 
-Observation-driven exponential smoothing of Poisson counts.
+This package implements an approach to forecasting count time series
+with a form of exponential smoothing built from observation-driven
+models of Davis, Dunsmuir and Streett (2003). The methodology is
+discussed in Karlis, Pedeli and Varin (2023).
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -20,7 +23,8 @@ devtools::install_github("crisvarin/odes")
 
 ## Example
 
-This example shows how to use `odes` for disease surveillance:
+This is a basic example showing how to use odes for disease
+surveillance:
 
 ``` r
 library(odes)
@@ -72,3 +76,11 @@ example(surveillance.odes)
     #>         29         31         32         33         34         35         36 
     #> 2020-01-01 
     #>         37
+
+## References
+
+Davis, R.A., Dunsmuir, W.T. & Streett, S.B. (2003). Observation-driven
+models for Poisson counts. **Biometrika**, 777–790.
+
+Karlis, D., Pedeli, X. & Varin, C. (2023). Observation-driven
+exponential smoothing. Submitted.
