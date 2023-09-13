@@ -45,6 +45,6 @@ example(surveillance.odes)
 
 ## References
 
-Davis, R.A., Dunsmuir, W.T. & Streett, S.B. (2003). Observation-driven models for Poisson counts. **Biometrika**, 777–790.
+Davis, R.A., Dunsmuir, W.T. & Streett, S.B. (2003). Observation-driven models for Poisson counts. *Biometrika* **90**(4), 777–790.
 
 Karlis, D., Pedeli, X. & Varin, C. (2023). Observation-driven exponential smoothing. Submitted. 
