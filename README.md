@@ -3,10 +3,10 @@
 
 # odes
 
+Observation-driven exponential smoothing of Poisson counts.
+
 <!-- badges: start -->
 <!-- badges: end -->
-
-Observation-driven Exponential Smoothing for Poisson Counts
 
 ## Installation
 
@@ -20,12 +20,11 @@ devtools::install_github("crisvarin/odes")
 
 ## Example
 
-This is a basic example which shows you how to use `odes` for disease
-surveillance:
+This example shows how to use `odes` for disease surveillance:
 
 ``` r
-library("odes")
-example("surveillance.odes")
+library(odes)
+example(surveillance.odes)
 #> 
 #> srvll.> ## Replicates Section 4 of Karlis, Pedeli and Varin (2023)
 #> srvll.> dengue_data <- data.frame(counts = dengue, time = seq_len(length(dengue)))
@@ -63,7 +62,7 @@ example("surveillance.odes")
 #> srvll.+ "Dengue cases")
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
+<img src="man/figures/example-1.png" width="100%" />
 
     #> 
     #> srvll.> surv$alarms
