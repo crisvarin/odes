@@ -18,7 +18,7 @@ You can install the development version of odes from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("crisvarin/odes")
+devtools::install_github("crisvarin/odes", build_vignettes = TRUE)
 ```
 
 ## Example
@@ -76,6 +76,14 @@ example(surveillance.odes)
     #>         29         31         32         33         34         35         36 
     #> 2020-01-01 
     #>         37
+
+The package vignette expands on the previous example by allowing the
+results discussed in Section 4 of Karlis, Pedeli, and Varin (2023) to be
+fully replicated:
+
+``` r
+# vignette("odes")
+```
 
 ## References
 
