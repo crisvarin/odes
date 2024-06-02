@@ -103,5 +103,7 @@ fully replicated:
 Davis, R.A., Dunsmuir, W.T. & Streett, S.B. (2003). Observation-driven
 models for Poisson counts. *Biometrika* **90**(4), 777–790.
 
-Karlis, D., Pedeli, X. & Varin, C. (2023). Observation-driven
-exponential smoothing. *Stat* **12**(1), e642.
+Karlis, D., Pedeli, X. & Varin, C. (2023). [Observation-driven
+exponential
+smoothing](https://onlinelibrary.wiley.com/doi/10.1002/sta4.642). *Stat*
+**12**(1), e642.
