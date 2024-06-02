@@ -64,18 +64,6 @@ example(surveillance.odes)
 #> srvll.> surv <- surveillance.odes(fit, new_data = dengue_phaseII, names_as_dates =
 #> srvll.+ TRUE, date_labels = "%Y", breaks = "2 year", x_label = NULL, y_label =
 #> srvll.+ "Dengue cases")
-#> Warning: Use of `gg_df$times` is discouraged.
-#> ℹ Use `times` instead.
-#> Warning: Use of `gg_df$y` is discouraged.
-#> ℹ Use `y` instead.
-#> Warning: Use of `gg_df$times` is discouraged.
-#> ℹ Use `times` instead.
-#> Warning: Use of `gg_df$y` is discouraged.
-#> ℹ Use `y` instead.
-#> Warning: Use of `gg_df$times` is discouraged.
-#> ℹ Use `times` instead.
-#> Warning: Use of `gg_df$y` is discouraged.
-#> ℹ Use `y` instead.
 ```
 
 <img src="man/figures/example-1.png" width="100%" />
