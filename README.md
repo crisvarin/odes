@@ -64,6 +64,18 @@ example(surveillance.odes)
 #> srvll.> surv <- surveillance.odes(fit, new_data = dengue_phaseII, names_as_dates =
 #> srvll.+ TRUE, date_labels = "%Y", breaks = "2 year", x_label = NULL, y_label =
 #> srvll.+ "Dengue cases")
+#> Warning: Use of `gg_df$times` is discouraged.
+#> ℹ Use `times` instead.
+#> Warning: Use of `gg_df$y` is discouraged.
+#> ℹ Use `y` instead.
+#> Warning: Use of `gg_df$times` is discouraged.
+#> ℹ Use `times` instead.
+#> Warning: Use of `gg_df$y` is discouraged.
+#> ℹ Use `y` instead.
+#> Warning: Use of `gg_df$times` is discouraged.
+#> ℹ Use `times` instead.
+#> Warning: Use of `gg_df$y` is discouraged.
+#> ℹ Use `y` instead.
 ```
 
 <img src="man/figures/example-1.png" width="100%" />
@@ -92,4 +104,4 @@ Davis, R.A., Dunsmuir, W.T. & Streett, S.B. (2003). Observation-driven
 models for Poisson counts. *Biometrika* **90**(4), 777–790.
 
 Karlis, D., Pedeli, X. & Varin, C. (2023). Observation-driven
-exponential smoothing. Submitted.
+exponential smoothing. *Stat* **12**(1), e642.
