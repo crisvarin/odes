@@ -1,0 +1,31 @@
+Package: odes
+Title: Observation Driven Exponential Smoothing
+Version: 0.1.1
+Authors@R: 
+    person("Cristiano", "Varin", , "cristiano.varin@unive.it", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-5591-5705"))
+Description: Forecasting Poisson counts with observation-driven exponential smoothing. 
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+LinkingTo: 
+    Rcpp
+Imports: 
+    ggplot2,
+    grDevices,
+    numDeriv,
+    Rcpp,
+    robustbase,
+    stats
+Depends: 
+    R (>= 2.10)
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+URL: https://github.com/crisvarin/odes
+BugReports: https://github.com/crisvarin/odes/issues

@@ -1,0 +1,74 @@
+---
+title: "Observation-driven Exponential Smoothing for Poisson Counts"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Observation-driven Exponential Smoothing for Poisson Counts}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  fig.width = 6, fig.height = 4, fig.align = "center",
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This vignette shows how to replicate step-by-step the analysis of Dengue fever 
+in Italy discussed in Section 4 of Karlis, Pedeli and Varin (2023) using the 
+`odes` package. 
+
+Let us load `odes`:
+```{r setup}
+library("odes")
+```
+
+The next step is to create a data frame with dengue fever data. The data frame 
+columns are `counts` with Dengue cases and the `time` index:
+```{r}
+dengue_data <- data.frame(counts = dengue, time = seq_len(length(dengue)))
+```
+
+It is also convenient to name the rows of the data frame with the observation 
+dates:
+```{r}
+dates <- seq(as.Date("2008/1/1"), by = "month", length.out = nrow(dengue_data))
+rownames(dengue_data) <- dates
+```
+
+We now split the data into the phase I subset that will be used for model fitting 
+and the phase II subset that will be used for surveillance:
+```{r}
+dengue_phaseI <- dengue_data[1:108, ]
+dengue_phaseII <- dengue_data[-(1:108), ]
+```
+
+
+We can now fit ODES to the phase I data:
+```{r}
+fit <- odes(counts ~ sin(2 * pi * time / 12) + cos(2 * pi * time / 12),
+data = dengue_phaseI)
+summary(fit)
+```
+
+Finally, surveillance of phase II data:
+```{r}
+surv <- surveillance.odes(fit, new_data = dengue_phaseII, names_as_dates = TRUE, 
+                          date_labels = "%Y", breaks = "2 year")
+```
+
+The allarms identified  by `odes` are: 
+```{r}
+surv$alarms
+```
+
+For comparison, the following lines repeat the previous analysis but without resorting to robustness adjustment (`Huber = FALSE`):
+```{r}
+fit2 <- update(fit, Huber = FALSE)
+summary(fit2)
+surv2 <- surveillance.odes(fit2, new_data = dengue_phaseII, 
+                           names_as_dates = TRUE, date_labels = "%Y", 
+                           breaks = "2 year", x_label = NULL)
+surv2$alarms
+```
